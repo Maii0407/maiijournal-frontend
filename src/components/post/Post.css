@@ -1,0 +1,14 @@
+.Post {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border: solid 5px rgb(202, 202, 202);
+  border-radius: 5px;
+  padding: 0 10px 0 10px;
+  margin: 10px;
+}
+
+.Post p {
+  font-family: 'ZCOOL QingKe HuangYou', cursive;
+  color: rgb(202, 202, 202);
+}

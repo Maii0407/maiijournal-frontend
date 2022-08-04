@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 
-import { Post } from './components/post/post';
+import { Post } from './components/post/Post';
 
 const App = () => {
   const [ postsData, setPostsData ] = useState([]);
   const [ fetchStatus, setFetchStatus ] = useState( false );
+
+  const navigate = useNavigate();
 
   useEffect( () => {
     const getPostsData = async () => {
@@ -29,13 +32,34 @@ const App = () => {
   }, [ postsData, fetchStatus ]);
 
   return (
-    <div>
-      <div>
-        {
-          postsData.map( ( post ) => {
-            return <Post key={ post._id } postData={ post }/>
-          })
-        }
+    <div className='App'>
+      <div className='header-container'>
+        <h1 onClick={ () => { navigate( '/' ) } }>
+          maiiJournal
+        </h1>
+      </div>
+      <div className='content-container'>
+        <Routes>
+          <Route path='/' element={
+            <div className='postList-container'>
+              {
+                postsData.map( ( post ) => {
+                  return <Post key={ post._id } postData={ post }/>
+                })
+              }
+            </div>
+          }
+          />
+          {
+            postsData.map( ( post ) => {
+              return <Route
+                  key={ post._id }
+                  path={ `/posts/${ post._id }` }
+                  element={ <div>Hello world</div> }
+                />
+            })
+          }
+        </Routes>
       </div>
     </div>
   )
