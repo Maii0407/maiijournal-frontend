@@ -3,6 +3,7 @@ import { Routes, Route, useNavigate } from 'react-router-dom';
 
 import { Post } from './components/post/Post';
 import { PostDetail } from './components/post/PostDetail';
+import { Admin } from './components/admin/Admin';
 
 const App = () => {
   const [ postsData, setPostsData ] = useState([]);
@@ -60,6 +61,7 @@ const App = () => {
                 />
             })
           }
+          <Route path='/admin' element={ <Admin/> }/>
         </Routes>
       </div>
     </div>

@@ -1,0 +1,38 @@
+.Admin-form {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  padding: 50px 20px 100px 20px;
+  font-family: 'ZCOOL QingKe HuangYou', cursive;
+  color: rgb(202, 202, 202);
+  border: 5px solid rgb(202, 202, 202);
+  border-radius: 5px;
+}
+
+.Admin-form label {
+  margin-bottom: 5px;
+  text-indent: 10px;
+  font-weight: bold;
+}
+
+.Admin-form input{
+  font-family: 'ZCOOL QingKe HuangYou', cursive;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  padding: 10px 0;
+  text-indent: 10px;
+  margin-bottom: 10px;
+  color: blue;
+  background-color: rgb(202, 202, 202);
+  font-weight: bold;
+}
+
+.Admin-form button {
+  border: 1px solid transparent;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 20px;
+  color: rgb(65, 65, 238);
+  background-color: rgb(202, 202, 202);
+  font-weight: bolder;
+}

@@ -10,7 +10,7 @@ const PostDetail = ( props ) => {
         <h3>{ postData.title }</h3>
         <p>{ postData.content }</p>
         <div className='post-info'>
-          <p>Author : { postData.user.userID }</p>
+          <div className='postCategory'>{ postData.category.name }</div>
           <p>{ DateTime.fromISO( postData.date ).toFormat( 'dd LLL yyyy' ) }</p>
         </div>
       </div>
@@ -20,5 +20,7 @@ const PostDetail = ( props ) => {
     </div>
   );
 };
+
+//the div with class postCategory will have a navigate function to that category
 
 export { PostDetail };

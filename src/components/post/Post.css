@@ -38,5 +38,17 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   border-top: solid 1px rgb(202, 202, 202);
+}
+
+.PostDetail .post-container .post-info .postCategory {
+  border: 3px solid rgb(202, 202, 202);
+  border-radius: 5px;
+  padding: 5px 20px;
+}
+
+.PostDetail .commentList-container h3 {
+  border-bottom: 1px solid rgb(202, 202, 202);
+  padding: 10px;
 }
