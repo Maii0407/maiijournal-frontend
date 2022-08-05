@@ -12,3 +12,31 @@
   font-family: 'ZCOOL QingKe HuangYou', cursive;
   color: rgb(202, 202, 202);
 }
+
+.PostDetail {
+  font-family: 'ZCOOL QingKe HuangYou', cursive;
+  margin: 10px;
+  color: rgb(202, 202, 202);
+}
+
+.PostDetail .post-container {
+  display: flex;
+  flex-direction: column;
+  border: solid 5px rgb(202, 202, 202);
+  border-radius: 5px;
+  padding: 0 10px 0 10px;
+}
+
+.PostDetail .post-container h3 {
+  text-align: center;
+  margin: 10px 0;
+  border-bottom: 1px solid rgb(202, 202, 202);
+  padding-bottom: 10px;
+}
+
+.PostDetail .post-container .post-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-top: solid 1px rgb(202, 202, 202);
+}

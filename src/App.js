@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 
 import { Post } from './components/post/Post';
+import { PostDetail } from './components/post/PostDetail';
 
 const App = () => {
   const [ postsData, setPostsData ] = useState([]);
@@ -55,7 +56,7 @@ const App = () => {
               return <Route
                   key={ post._id }
                   path={ `/posts/${ post._id }` }
-                  element={ <div>Hello world</div> }
+                  element={ <PostDetail postData={ post } /> }
                 />
             })
           }
