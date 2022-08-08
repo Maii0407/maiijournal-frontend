@@ -28,7 +28,7 @@
 }
 
 .Admin-form button {
-  border: 1px solid transparent;
+  border: none;
   border-radius: 5px;
   padding: 10px;
   margin: 10px 20px;
