@@ -8,6 +8,7 @@ import { Admin } from './components/admin/Admin';
 const App = () => {
   const [ postsData, setPostsData ] = useState([]);
   const [ fetchStatus, setFetchStatus ] = useState( false );
+  const [ jwtToken, setJwtToken ] = useState('');
 
   const navigate = useNavigate();
 
@@ -32,6 +33,19 @@ const App = () => {
     }
     return;
   }, [ postsData, fetchStatus ]);
+
+  if( jwtToken !== '' ) {
+    return (
+      <div className='App'>
+        <div className='header-container'>
+          <h1 onClick={ () => { navigate( '/' ) } }>
+            maiiJournal
+          </h1>
+        </div>
+        <div className='content-container'>Hello Admin</div>
+      </div>
+    )
+  }
 
   return (
     <div className='App'>
@@ -61,7 +75,10 @@ const App = () => {
                 />
             })
           }
-          <Route path='/admin' element={ <Admin/> }/>
+          <Route
+            path='/admin'
+            element={ <Admin setJwtToken={ setJwtToken }/> }
+          />
         </Routes>
       </div>
     </div>

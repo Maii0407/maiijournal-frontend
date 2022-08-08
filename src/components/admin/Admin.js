@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const Admin = () => {
+const Admin = ( props ) => {
+  const navigate = useNavigate();
+  const { setJwtToken } = props;
+
   const [ userIDState, setUserIDState ] = useState('');
   const [ passwordState, setPasswordState ] = useState('');
 
@@ -24,8 +28,10 @@ const Admin = () => {
       });
       const data = await response.json();
       console.log( 'Success:', data );
+      setJwtToken( data.token );
       setUserIDState('');
       setPasswordState('');
+      navigate( '/' );
     }
     catch( err ) {
       console.log( 'Error:', err );
