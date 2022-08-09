@@ -48,3 +48,29 @@
   background-color: rgb(202, 202, 202);
   font-weight: bolder;
 }
+
+.CommentList {
+  text-align: center;
+  font-weight: bold;
+  padding-bottom: 50px;
+}
+
+.Comment {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  border: 5px solid rgb(202, 202, 202);
+  border-radius: 5px;
+  padding: 0 10px;
+}
+
+.Comment .comment-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 1px solid rgb(202, 202, 202);
+}
+
+.Comment .comment-content {
+  text-align: start;
+}

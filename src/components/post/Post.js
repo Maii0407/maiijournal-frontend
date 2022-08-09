@@ -8,7 +8,7 @@ const Post = ( props ) => {
   const navigate = useNavigate();
 
   return (
-    <div className='Post' onClick={ () => { navigate( `/posts/${ postData._id }` ) } }>
+    <div className='Post' onClick={ () => { navigate( `/${ postData._id }` ) } }>
       <p>{ postData.title }</p>
       <p>{ DateTime.fromISO( postData.date ).toFormat( 'dd LLL yyyy' ) }</p>
     </div>

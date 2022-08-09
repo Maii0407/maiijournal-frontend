@@ -70,7 +70,7 @@ const App = () => {
             postsData.map( ( post ) => {
               return <Route
                   key={ post._id }
-                  path={ `/posts/${ post._id }` }
+                  path={ `/${ post._id }` }
                   element={ <PostDetail postData={ post } /> }
                 />
             })

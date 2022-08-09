@@ -1,10 +1,36 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { DateTime } from 'luxon';
 
 import { CommentCreate } from '../comment/CommentCreate';
+import { CommentList } from '../comment/CommentList';
 
 const PostDetail = ( props ) => {
   const { postData } = props;
+
+  const [ commentsData, setCommentsData ] = useState([]);
+  const [ commentsFetched, setCommentsFetched ] = useState( false );
+
+  useEffect( () => {
+    const getCommentsData = async () => {
+      const url = `http://localhost:4000/journal/posts/${ postData._id }/comments`;
+
+      try{
+        const response = await fetch( url, { method: 'GET', mode: 'cors' });
+        const data = await response.json();
+        setCommentsData( data.comments );
+        console.log( data );
+      }
+      catch( err ) {
+        console.log( 'Error:', err );
+      }
+    };
+
+    if( !commentsFetched ) {
+      getCommentsData();
+      setCommentsFetched( true );
+    }
+
+  }, [ commentsData, commentsFetched, postData ]);
 
   return (
     <div className='PostDetail'>
@@ -18,7 +44,8 @@ const PostDetail = ( props ) => {
       </div>
       <div className='commentList-container'>
         <h3>Comments</h3>
-        <CommentCreate postData={ postData }/>
+        <CommentCreate postData={ postData } setCommentsData={ setCommentsData }/>
+        <CommentList commentsData={ commentsData }/>
       </div>
     </div>
   );
