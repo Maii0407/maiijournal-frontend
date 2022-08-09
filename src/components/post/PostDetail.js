@@ -1,6 +1,8 @@
 import React from 'react';
 import { DateTime } from 'luxon';
 
+import { CommentCreate } from '../comment/CommentCreate';
+
 const PostDetail = ( props ) => {
   const { postData } = props;
 
@@ -16,6 +18,7 @@ const PostDetail = ( props ) => {
       </div>
       <div className='commentList-container'>
         <h3>Comments</h3>
+        <CommentCreate postData={ postData }/>
       </div>
     </div>
   );

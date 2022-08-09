@@ -17,7 +17,7 @@
 
 .Admin-form input{
   font-family: 'ZCOOL QingKe HuangYou', cursive;
-  border: 1px solid transparent;
+  border: none;
   border-radius: 5px;
   padding: 10px 0;
   text-indent: 10px;
