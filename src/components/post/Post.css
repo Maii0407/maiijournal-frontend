@@ -2,15 +2,19 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  border: 5px solid rgb(202, 202, 202);
+
+  border: 5px double rgb(65, 65, 238);
   border-radius: 5px;
+
+  background-color: rgb(202, 202, 202);
+
   padding: 0 10px;
   margin: 10px;
 }
 
 .Post p {
   font-family: 'ZCOOL QingKe HuangYou', cursive;
-  color: rgb(202, 202, 202);
+  color: rgb(65, 65, 238);
 }
 
 .PostDetail {
@@ -22,15 +26,20 @@
 .PostDetail .post-container {
   display: flex;
   flex-direction: column;
-  border: solid 5px rgb(202, 202, 202);
+
+  border: 5px double rgb(65, 65, 238);
   border-radius: 5px;
+
+  background-color: rgb(202, 202, 202);
+  color: rgb(65, 65, 238);
+
   padding: 0 10px 0 10px;
 }
 
 .PostDetail .post-container h3 {
   text-align: center;
   margin: 10px 0;
-  border-bottom: 1px solid rgb(202, 202, 202);
+  border-bottom: 1px solid rgb(65, 65, 238);
   padding-bottom: 10px;
 }
 
@@ -39,13 +48,13 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  border-top: solid 1px rgb(202, 202, 202);
+  border-top: 1px solid rgb(65, 65, 238);
 }
 
 .PostDetail .post-container .post-info .postCategory {
-  border: 3px solid rgb(202, 202, 202);
+  border: 2px solid rgb(65, 65, 238);
   border-radius: 5px;
-  padding: 5px 20px;
+  padding: 5px 10px;
 }
 
 .PostDetail .commentList-container h3 {

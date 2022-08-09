@@ -4,11 +4,13 @@ import { Routes, Route, useNavigate } from 'react-router-dom';
 import { Post } from './components/post/Post';
 import { PostDetail } from './components/post/PostDetail';
 import { Admin } from './components/admin/Admin';
+import { Category } from './components/category/Category';
 
 const App = () => {
   const [ postsData, setPostsData ] = useState([]);
   const [ fetchStatus, setFetchStatus ] = useState( false );
   const [ jwtToken, setJwtToken ] = useState('');
+  const [ categoriesData, setCategoriesData ] = useState([]);
 
   const navigate = useNavigate();
 
@@ -27,12 +29,27 @@ const App = () => {
       }
     };
 
+    const getCategories = async () => {
+      const url = 'http://localhost:4000/journal/categories';
+
+      try {
+        const response = await fetch( url, { method: 'GET', mode: 'cors' });
+        const data = await response.json();
+        setCategoriesData( data.categories );
+        console.log( data );
+      }
+      catch( err ) {
+        console.log( 'Error:', err );
+      }
+    };
+
     if( !fetchStatus ) {
-      getPostsData()
+      getPostsData();
+      getCategories();
       setFetchStatus( true );
     }
     return;
-  }, [ postsData, fetchStatus ]);
+  }, [ postsData, categoriesData, fetchStatus ]);
 
   if( jwtToken !== '' ) {
     return (
@@ -57,15 +74,25 @@ const App = () => {
       <div className='content-container'>
         <Routes>
           <Route path='/' element={
-            <div className='postList-container'>
-              {
-                postsData.map( ( post ) => {
-                  return <Post key={ post._id } postData={ post }/>
-                })
-              }
+            <div className='initialContent'>
+              <h3>Categories</h3>
+              <div className='categoriesList-container'>
+                {
+                  categoriesData.map( ( category ) => {
+                    return <Category key={ category._id } categoryData={ category }/>
+                  })
+                }
+              </div>
+              <h3>Posts</h3>
+              <div className='postList-container'>
+                {
+                  postsData.map( ( post ) => {
+                    return <Post key={ post._id } postData={ post }/>
+                  })
+                }
+              </div>
             </div>
-          }
-          />
+          }/>
           {
             postsData.map( ( post ) => {
               return <Route

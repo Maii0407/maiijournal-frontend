@@ -59,7 +59,7 @@ const CommentCreate = ( props ) => {
       <textarea placeholder='What are your thoughts?'
         onChange={ e => setCommentState( e.target.value ) } value={ commentState }
       />
-      <button type='submit'>Comment</button>
+      <button type='submit'>Submit Comment</button>
     </form>
   );
 };

@@ -1,0 +1,10 @@
+.Category {
+  background-color: rgb(202, 202, 202);
+  color: rgb(65, 65, 238);
+
+  border: 5px double rgb(65, 65, 238);
+  border-radius: 5px;
+
+  margin: 5px;
+  padding: 5px 10px;
+}
