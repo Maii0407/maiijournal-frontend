@@ -5,6 +5,7 @@ import { Post } from './components/post/Post';
 import { PostDetail } from './components/post/PostDetail';
 import { Admin } from './components/admin/Admin';
 import { Category } from './components/category/Category';
+import { CategoryPost } from './components/category/CategoryPost';
 
 const App = () => {
   const [ postsData, setPostsData ] = useState([]);
@@ -75,7 +76,7 @@ const App = () => {
         <Routes>
           <Route path='/' element={
             <div className='initialContent'>
-              <h3>Categories</h3>
+              <h3>Filter by Categories</h3>
               <div className='categoriesList-container'>
                 {
                   categoriesData.map( ( category ) => {
@@ -100,6 +101,16 @@ const App = () => {
                   path={ `/${ post._id }` }
                   element={ <PostDetail postData={ post } /> }
                 />
+            })
+          }
+          {
+            categoriesData.map( ( category ) => {
+              return <Route key={ category._id }
+                path={ `/${ category._id }` }
+                element={ <CategoryPost categoryData={ category }
+                  postsArray={ postsData }
+                /> }
+              />
             })
           }
           <Route
