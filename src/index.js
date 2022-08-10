@@ -10,6 +10,7 @@ import './components/post/Post.css';
 import './components/admin/Admin.css';
 import './components/comment/Comment.css';
 import './components/category/Category.css';
+import './components/publicUser/Public.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

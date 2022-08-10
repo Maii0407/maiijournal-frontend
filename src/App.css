@@ -1,4 +1,4 @@
-.header-container {
+.Header {
   background-color: rgb(202, 202, 202);
   color: rgb(65, 65, 238);
   position: fixed;
@@ -11,31 +11,8 @@
   justify-content: center;
 }
 
-.header-container h1 {
+.Header h1 {
   font-family: 'ZCOOL QingKe HuangYou', cursive;
   margin: 0;
   text-indent: 10px;
-}
-
-.content-container {
-  margin-top: 70px;
-}
-
-.initialContent {
-  display: flex;
-  flex-direction: column;
-}
-
-.initialContent h3 {
-  color: rgb(202, 202, 202);
-  border-bottom: 1px solid rgb(202, 202, 202);
-  padding: 0 10px 10px 10px;
-  margin: 0 10px 10px 10px;
-}
-
-.categoriesList-container {
-  max-width: 100%;
-  display: flex;
-  flex-direction: row;
-  padding-bottom: 20px;
 }
