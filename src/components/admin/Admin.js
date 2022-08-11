@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Admin = ( props ) => {
   const navigate = useNavigate();
-  const { setJwtToken } = props;
+  const { setJwtToken, setAdmin } = props;
 
   const [ userIDState, setUserIDState ] = useState('');
   const [ passwordState, setPasswordState ] = useState('');
@@ -29,6 +29,7 @@ const Admin = ( props ) => {
       const data = await response.json();
       console.log( 'Success:', data );
       setJwtToken( data.token );
+      setAdmin( true );
       setUserIDState('');
       setPasswordState('');
       navigate( '/' );
