@@ -11,7 +11,7 @@ const App = () => {
   if( admin ) {
     return (
       <div className='App'>
-        <Header/>
+        <Header admin={ admin }/>
         <AdminContent jwtToken={ jwtToken }/>
       </div>
     )
@@ -19,7 +19,7 @@ const App = () => {
 
   return (
     <div className='App'>
-      <Header/>
+      <Header admin={ admin }/>
       <PublicContent setJwtToken={ setJwtToken } setAdmin={ setAdmin }/>
     </div>
   )
