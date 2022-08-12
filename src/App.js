@@ -8,11 +8,11 @@ const App = () => {
   const [ jwtToken, setJwtToken ] = useState('');
   const [ admin, setAdmin ] = useState( false );
 
-  if( !admin ) {
+  if( admin ) {
     return (
       <div className='App'>
         <Header/>
-        <AdminContent/>
+        <AdminContent jwtToken={ jwtToken }/>
       </div>
     )
   }
