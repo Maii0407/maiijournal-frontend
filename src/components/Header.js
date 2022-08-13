@@ -8,13 +8,18 @@ const Header = ( props ) => {
 
   const navigate = useNavigate();
 
+  const openNav = () => {
+    document.getElementById( 'AdminNavBar' ).style.visibility = 'visible';
+    document.getElementById( 'NavMenu' ).style.width = '90%';
+  };
+
   if( admin ) {
     return(
       <div className='Header'>
         <h1 onClick={ () => { navigate('/') } }>
           maiiJournal
         </h1>
-        <input type='image' src={ navbar } alt='navMenu'/>
+        <input type='image' src={ navbar } alt='navMenu' onClick={ openNav }/>
       </div>
     );
   }
