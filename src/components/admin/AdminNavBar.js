@@ -1,6 +1,9 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const AdminNavBar = () => {
+  const navigate = useNavigate();
+
   const closeNav = () => {
     document.getElementById( 'AdminNavBar' ).style.visibility = 'hidden';
     document.getElementById( 'NavMenu' ).style.width = '0';
@@ -10,11 +13,23 @@ const AdminNavBar = () => {
     <div id='AdminNavBar'>
       <div id='NavMenu'>
         <div className='allContent'>
-          <p onClick={ closeNav }>&times;</p>
-          <p>Home</p>
-          <p>All Categories</p>
-          <p>All Posts</p>
-          <p>All Comments</p>
+          <p className='closeNavBtn' onClick={ closeNav }>&times;</p>
+          <p onClick={ () => {
+            navigate( '/' );
+            closeNav();
+          }}>Home</p>
+          <p onClick={ () => {
+            navigate( '/allcategories' );
+            closeNav();
+          }}>All Categories</p>
+          <p onClick={ () => {
+            navigate( '/allposts');
+            closeNav();
+          }}>All Posts</p>
+          <p onClick={ () => {
+            navigate( '/allcomments' );
+            closeNav();
+          }}>All Comments</p>
         </div>
         <div className='createContent'>
           <p>+ New Post</p>

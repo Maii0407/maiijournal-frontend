@@ -55,7 +55,7 @@ const PublicContent = ( props ) => {
     <div className='PublicContent'>
       <Routes>
         <Route
-          path=''
+          path='/'
           element={
             <div className='initialContent'>
               <h3>Filter by Categories</h3>

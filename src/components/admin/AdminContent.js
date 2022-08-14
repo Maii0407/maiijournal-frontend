@@ -1,4 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
+
+import { CategoryAdmin } from '../category/CategoryAdmin';
+import { PostAdmin } from '../post/PostAdmin';
+import { CommentList } from './CommentList';
 
 const AdminContent = ( props ) => {
   const { jwtToken } = props;
@@ -75,11 +80,23 @@ const AdminContent = ( props ) => {
 
   return(
     <div className='AdminContent'>
-      <h1>Hello Admin.</h1>
-      <h2>Currently, we have:</h2>
-      <p>Posts: { postsData.length }</p>
-      <p>Categories: { categoriesData.length }</p>
-      <p>Comments: { commentsData.length }</p>
+      <Routes>
+        <Route
+          path='/'
+          element={
+            <div>
+              <h1>Hello Admin.</h1>
+              <h2>Currently, we have:</h2>
+              <p>Posts: { postsData.length }</p>
+              <p>Categories: { categoriesData.length }</p>
+              <p>Comments: { commentsData.length }</p>
+            </div>
+          }
+        />
+        <Route path='/allcategories' element={ <CategoryAdmin categoriesData={ categoriesData }/> }/>
+        <Route path='/allposts' element={ <PostAdmin postsData={ postsData }/> }/>
+        <Route path='/allcomments' element={ <CommentList commentsData={ commentsData }/> }/>
+      </Routes>
     </div>
   );
 };
