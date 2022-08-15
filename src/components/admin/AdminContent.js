@@ -7,6 +7,8 @@ import { CommentList } from './CommentList';
 import { CategoryDetail } from './CategoryDetail';
 import { PostDetail } from './PostDetail';
 import { CommentDetail } from './CommentDetail';
+import { CreateCategory } from './CreateCategory';
+import { CreatePost } from './CreatePost';
 
 const AdminContent = ( props ) => {
   const { jwtToken } = props;
@@ -120,6 +122,14 @@ const AdminContent = ( props ) => {
             element={ <CommentDetail commentData={ comment } /> }
           />
         })}
+        <Route
+          path={ '/createcategory' }
+          element={ <CreateCategory jwtToken={ jwtToken } setCategoriesData={ setCategoriesData }/> }
+        />
+        <Route
+          path={ '/createpost' }
+          element={ <CreatePost jwtToken={ jwtToken } setPostsData={ setPostsData } categoriesData={ categoriesData }/> }
+        />
       </Routes>
     </div>
   );

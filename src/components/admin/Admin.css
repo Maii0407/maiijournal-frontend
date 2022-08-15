@@ -12,29 +12,54 @@
 .Admin-form label {
   margin-bottom: 5px;
   text-indent: 10px;
+  text-align: start;
   font-weight: bold;
 }
 
-.Admin-form input{
+.Admin-form input,
+.Admin-form select {
   font-family: 'ZCOOL QingKe HuangYou', cursive;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 0;
   text-indent: 10px;
-  margin-bottom: 10px;
-  color: blue;
-  background-color: rgb(202, 202, 202);
   font-weight: bold;
+
+  color: rgb(202, 202, 202);
+  background-color: rgb(65, 65, 238);
+
+  border: 5px double rgb(202, 202, 202);
+  border-radius: 5px;
+
+  padding: 10px 0;
+  margin-bottom: 10px;
+}
+
+.Admin-form textarea {
+  font-family: 'ZCOOL QingKe HuangYou', cursive;
+  font-weight: bold;
+  resize: vertical;
+
+  border: 5px double rgb(202, 202, 202);
+  border-radius: 5px 5px 0 5px;
+
+  color: rgb(202, 202, 202);
+  background-color: transparent;
+
+  padding: 10px;
+  min-height: 50px;
+  margin-bottom: 10px;
 }
 
 .Admin-form button {
-  border: none;
-  border-radius: 5px;
-  padding: 10px;
-  margin: 10px 20px;
+  font-family: 'ZCOOL QingKe HuangYou', cursive;
+  font-weight: bolder;
+
   color: rgb(65, 65, 238);
   background-color: rgb(202, 202, 202);
-  font-weight: bolder;
+
+  border: 5px double rgb(65, 65, 238);
+  border-radius: 5px;
+
+  padding: 10px;
+  margin: 10px 20px;
 }
 
 .AdminContent {

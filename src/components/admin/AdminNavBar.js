@@ -32,8 +32,14 @@ const AdminNavBar = () => {
           }}>All Comments</p>
         </div>
         <div className='createContent'>
-          <p>+ New Post</p>
-          <p>+ New Category</p>
+          <p onClick={ () => {
+            navigate( '/createpost' );
+            closeNav();
+          }}>+ New Post</p>
+          <p onClick={ () => {
+            navigate( '/createcategory' );
+            closeNav();
+          }}>+ New Category</p>
         </div>
       </div>
     </div>
