@@ -103,14 +103,14 @@ const AdminContent = ( props ) => {
           return <Route
             key={ category._id }
             path={ `/allcategories/${ category._id }` }
-            element={ <CategoryDetail categoryData={ category } /> }
+            element={ <CategoryDetail categoryData={ category } postsData={ postsData }/> }
           />
         })}
         { postsData.map( ( post ) => {
           return <Route
             key={ post._id }
             path={ `/allposts/${ post._id }` }
-            element={ <PostDetail postData={ post } /> }
+            element={ <PostDetail postData={ post } commentsData={ commentsData }/> }
           />
         })}
         { commentsData.map( ( comment ) => {

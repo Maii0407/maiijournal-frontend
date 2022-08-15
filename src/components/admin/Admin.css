@@ -124,3 +124,34 @@
 .AdminContent .list .listItem p {
   padding: 0 10px;
 }
+
+.adminItemDetail .details {
+  display: flex;
+  flex-direction: column;
+
+  background-color: rgb(202, 202, 202);
+  color: rgb(65, 65, 238);
+
+  border: 5px double rgb(65, 65, 238);
+  border-radius: 5px;
+
+  margin: 10px;
+
+  text-align: start;
+}
+
+.adminItemDetail .details h3 {
+  border-bottom: 1px solid rgb(65, 65, 238);
+}
+
+.adminItemDetail p,
+.adminItemDetail h2,
+.adminItemDetail h3 {
+  margin: 0 10px;
+  padding: 5px 0;
+}
+
+.adminItemDetail .details .content {
+  border-bottom: 1px solid rgb(65, 65, 238);
+  padding: 10px;
+}
