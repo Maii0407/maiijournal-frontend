@@ -4,6 +4,9 @@ import { Routes, Route } from 'react-router-dom';
 import { CategoryList } from './CategoryList';
 import { PostList } from './PostList';
 import { CommentList } from './CommentList';
+import { CategoryDetail } from './CategoryDetail';
+import { PostDetail } from './PostDetail';
+import { CommentDetail } from './CommentDetail';
 
 const AdminContent = ( props ) => {
   const { jwtToken } = props;
@@ -96,6 +99,27 @@ const AdminContent = ( props ) => {
         <Route path='/allcategories' element={ <CategoryList categoriesData={ categoriesData }/> }/>
         <Route path='/allposts' element={ <PostList postsData={ postsData }/> }/>
         <Route path='/allcomments' element={ <CommentList commentsData={ commentsData }/> }/>
+        { categoriesData.map( ( category ) => {
+          return <Route
+            key={ category._id }
+            path={ `/allcategories/${ category._id }` }
+            element={ <CategoryDetail categoryData={ category } /> }
+          />
+        })}
+        { postsData.map( ( post ) => {
+          return <Route
+            key={ post._id }
+            path={ `/allposts/${ post._id }` }
+            element={ <PostDetail postData={ post } /> }
+          />
+        })}
+        { commentsData.map( ( comment ) => {
+          return <Route
+            key={ comment._id }
+            path={ `/allcomments/${ comment._id }` }
+            element={ <CommentDetail commentData={ comment } /> }
+          />
+        })}
       </Routes>
     </div>
   );

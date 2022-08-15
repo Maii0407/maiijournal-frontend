@@ -120,3 +120,7 @@
   padding-top: 10px;
   padding-bottom: 10px;
 }
+
+.AdminContent .list .listItem p {
+  padding: 0 10px;
+}
