@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
-import { CategoryAdmin } from '../category/CategoryAdmin';
-import { PostAdmin } from '../post/PostAdmin';
+import { CategoryList } from './CategoryList';
+import { PostList } from './PostList';
 import { CommentList } from './CommentList';
 
 const AdminContent = ( props ) => {
@@ -93,8 +93,8 @@ const AdminContent = ( props ) => {
             </div>
           }
         />
-        <Route path='/allcategories' element={ <CategoryAdmin categoriesData={ categoriesData }/> }/>
-        <Route path='/allposts' element={ <PostAdmin postsData={ postsData }/> }/>
+        <Route path='/allcategories' element={ <CategoryList categoriesData={ categoriesData }/> }/>
+        <Route path='/allposts' element={ <PostList postsData={ postsData }/> }/>
         <Route path='/allcomments' element={ <CommentList commentsData={ commentsData }/> }/>
       </Routes>
     </div>
