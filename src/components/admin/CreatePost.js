@@ -4,9 +4,9 @@ import { useNavigate } from 'react-router-dom';
 const CreatePost = ( props ) => {
   const { jwtToken, setPostsData, categoriesData } = props;
 
-  const [ title, setTitle ] = useState('');
-  const [ content, setContent ] = useState('');
-  const [ postStatus, setPostStatus ] = useState('');
+  const [ titleState, setTitleState ] = useState('');
+  const [ contentState, setContentState ] = useState('');
+  const [ postStatusState, setPostStatusState ] = useState('');
   const [ categoryState, setCategoryState ] = useState('');
 
   const navigate = useNavigate();
@@ -32,13 +32,13 @@ const CreatePost = ( props ) => {
   };
 
   const createPost = async ( e ) => {
-    e.prevetDefault();
+    e.preventDefault();
 
     const url = 'http://localhost:4000/admin/post';
     const postData = {
-      title: title,
-      content: content,
-      postStatus: postStatus,
+      title: titleState,
+      content: contentState,
+      postStatus: postStatusState,
       category: categoryState
     };
 
@@ -55,11 +55,11 @@ const CreatePost = ( props ) => {
       const data = await response.json();
       console.log( 'Success:', data );
       getPosts();
-      setTitle('');
-      setContent('');
-      setPostStatus('');
+      setTitleState('');
+      setContentState('');
+      setPostStatusState('');
       setCategoryState('');
-      navigate( '/' );
+      navigate( '/allposts' );
     }
     catch( err ) { console.log( 'Error:', err ) }
   }
@@ -68,20 +68,22 @@ const CreatePost = ( props ) => {
     <form className='Admin-form' onSubmit={ createPost }>
       <label htmlFor='title'>Post Title:</label>
       <input type='text' id='title' name='title'
-        placeholder='Enter Post Title' value={ title }
-        onChange={ e => setTitle( e.target.value ) }
+        placeholder='Enter Post Title' value={ titleState }
+        onChange={ e => setTitleState( e.target.value ) }
       />
       <textarea placeholder='What are your thoughts?'
-        onChange={ e => setContent( e.target.value ) }
-        value={ content }
+        onChange={ e => setContentState( e.target.value ) }
+        value={ contentState }
       />
       <label htmlFor='postStatus'>Post Status:</label>
       <select
         name='postStatus'
         id='postStatus'
-        value={ postStatus }
-        onChange={ e => { setPostStatus( e.target.value ) } }
+        value={ postStatusState }
+        onChange={ e => { setPostStatusState( e.target.value ) } }
+        defaultValue={''}
       >
+        <option value={''} disabled>Choose Post Status</option>
         <option value='published'>Published</option>
         <option value='unpublished'>Unpublished</option>
       </select>
@@ -91,11 +93,13 @@ const CreatePost = ( props ) => {
         id='postCategory'
         value={ categoryState }
         onChange={ e => { setCategoryState( e.target.value ) } }
-      >{
-        categoriesData.map( ( category ) => {
+        defaultValue={''}
+      >
+        <option value={''} disabled>Choose Post Category</option>
+        { categoriesData.map( ( category ) => {
           return <option key={ category._id } value={ category._id }>{ category.name }</option>
-        })
-      }</select>
+        })}
+      </select>
       <button type='submit'>Create Post</button>
     </form>
   );
