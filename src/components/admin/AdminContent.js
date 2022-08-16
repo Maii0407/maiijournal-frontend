@@ -105,21 +105,21 @@ const AdminContent = ( props ) => {
           return <Route
             key={ category._id }
             path={ `/allcategories/${ category._id }` }
-            element={ <CategoryDetail categoryData={ category } postsData={ postsData }/> }
+            element={ <CategoryDetail categoryData={ category } postsData={ postsData } jwtToken={ jwtToken } setDataFetched={ setDataFetched } /> }
           />
         })}
         { postsData.map( ( post ) => {
           return <Route
             key={ post._id }
             path={ `/allposts/${ post._id }` }
-            element={ <PostDetail postData={ post } commentsData={ commentsData }/> }
+            element={ <PostDetail postData={ post } commentsData={ commentsData } jwtToken={ jwtToken } setDataFetched={ setDataFetched } /> }
           />
         })}
         { commentsData.map( ( comment ) => {
           return <Route
             key={ comment._id }
             path={ `/allcomments/${ comment._id }` }
-            element={ <CommentDetail commentData={ comment } jwtToken={ jwtToken } setCommentsData={ setCommentsData } /> }
+            element={ <CommentDetail commentData={ comment } jwtToken={ jwtToken } setDataFetched={ setDataFetched } /> }
           />
         })}
         <Route

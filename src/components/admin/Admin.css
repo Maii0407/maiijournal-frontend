@@ -206,7 +206,9 @@
   padding: 10px;
 }
 
-#deleteComment {
+#deleteComment,
+#deletePost,
+#deleteCategory {
   visibility: hidden;
   min-height: 100%;
   min-width: 100%;

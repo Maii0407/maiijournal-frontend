@@ -3,7 +3,7 @@ import { DateTime } from 'luxon';
 import { useNavigate } from 'react-router-dom';
 
 const CommentDetail = ( props ) => {
-  const { commentData, jwtToken, setCommentsData } = props;
+  const { commentData, jwtToken, setDataFetched } = props;
 
   const navigate = useNavigate();
 
@@ -13,26 +13,6 @@ const CommentDetail = ( props ) => {
 
   const closeDeleteMenu = () => {
     document.getElementById( 'deleteComment' ).style.visibility = 'hidden';
-  };
-
-  const getComments = async () => {
-    const url = 'http://localhost:4000/admin/allcomments';
-
-    try {
-      const response = await fetch( url, {
-        method: 'GET',
-        mode: 'cors',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${ jwtToken }`
-        }
-      });
-
-      const data = await response.json();
-      setCommentsData( data.comments );
-      console.log( data );
-    }
-    catch( err ) { console.log( 'Error:', err ); }
   };
 
   const deleteComment = async () => {
@@ -49,8 +29,8 @@ const CommentDetail = ( props ) => {
       });
       const data = await response.json();
       console.log( data );
-      getComments();
-      navigate( '/allcomments' );
+      setDataFetched( false );
+      navigate( '/' );
     }
     catch( err ) { console.log( 'Error:', err ); }
   };

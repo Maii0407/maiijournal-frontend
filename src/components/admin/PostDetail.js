@@ -3,12 +3,40 @@ import { DateTime } from 'luxon';
 import { useNavigate } from 'react-router-dom';
 
 const PostDetail = ( props ) => {
-  const { postData, commentsData } = props;
+  const { postData, commentsData, jwtToken, setDataFetched } = props;
 
   const [ commentsFiltered, setCommentsFiltered ] = useState([]);
   const [ filterStatus, setFilterStatus ] = useState( false );
 
   const navigate = useNavigate();
+
+  const openDeleteMenu = () => {
+    document.getElementById( 'deletePost' ).style.visibility = 'visible';
+  };
+
+  const closeDeleteMenu = () => {
+    document.getElementById( 'deletePost' ).style.visibility = 'hidden';
+  };
+
+  const deletePost = async () => {
+    const url = `http://localhost:4000/admin/posts/${ postData._id }`;
+
+    try {
+      const response = await fetch( url, {
+        method: 'DELETE',
+        mode: 'cors',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${ jwtToken }`
+        }
+      });
+      const data = await response.json();
+      console.log( data );
+      setDataFetched( false );
+      navigate( '/' );
+    }
+    catch( err ) { console.log( 'Error:', err ); }
+  };
 
   useEffect( () => {
     if( !filterStatus ) {
@@ -27,9 +55,22 @@ const PostDetail = ( props ) => {
           <p>Post Status: { postData.postStatus }</p>
           <p>Category: { postData.category.name }</p>
           <p>Created: { DateTime.fromISO( postData.date ).toFormat( 'dd LLL yyyy' ) }</p>
+          <div className='btn-container'>
+            <button type='button' onClick={ openDeleteMenu }>Delete</button>
+          </div>
         </div>
         <h2>Comments:</h2>
         <p>There Are No Comments In This Post...</p>
+        <div id='deletePost'>
+          <div className='delete'>
+            <h3>Delete This Post?</h3>
+            <p>Are you sure?</p>
+            <div className='btn-container'>
+              <button type='button' onClick={ deletePost }>Yes</button>
+              <button type='button' onClick={ closeDeleteMenu }>No</button>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
@@ -43,6 +84,9 @@ const PostDetail = ( props ) => {
         <p>Post Status: { postData.postStatus }</p>
         <p>Category: { postData.category.name }</p>
         <p>Created: { DateTime.fromISO( postData.date ).toFormat( 'dd LLL yyyy' ) }</p>
+        <div className='btn-container'>
+            <button type='button' onClick={ openDeleteMenu }>Delete</button>
+        </div>
       </div>
       <h2>Comments:</h2>
       <div className='list'>{
@@ -54,6 +98,16 @@ const PostDetail = ( props ) => {
           </div>
         })
       }</div>
+      <div id='deletePost'>
+        <div className='delete'>
+          <h3>Delete This Post?</h3>
+          <p>Are you sure?</p>
+          <div className='btn-container'>
+            <button type='button' onClick={ deletePost }>Yes</button>
+            <button type='button' onClick={ closeDeleteMenu }>No</button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
