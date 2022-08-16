@@ -2,6 +2,10 @@
   background-color: rgb(202, 202, 202);
   color: rgb(65, 65, 238);
   font-weight: bold;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   border: 5px double rgb(65, 65, 238);
   border-radius: 5px;

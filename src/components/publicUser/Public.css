@@ -16,7 +16,7 @@
 
 .categoryList-container {
   max-width: 100%;
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: repeat( 3, 1fr );
   padding-bottom: 20px;
 }

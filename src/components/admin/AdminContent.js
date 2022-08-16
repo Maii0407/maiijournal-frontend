@@ -119,7 +119,7 @@ const AdminContent = ( props ) => {
           return <Route
             key={ comment._id }
             path={ `/allcomments/${ comment._id }` }
-            element={ <CommentDetail commentData={ comment } /> }
+            element={ <CommentDetail commentData={ comment } jwtToken={ jwtToken } setCommentsData={ setCommentsData } /> }
           />
         })}
         <Route

@@ -180,3 +180,61 @@
   border-bottom: 1px solid rgb(65, 65, 238);
   padding: 10px;
 }
+
+.btn-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  border-top: 1px solid rgb(65, 65, 238);
+
+  margin: 0 10px;
+  padding: 10px 0;
+}
+
+.btn-container button {
+  font-family: 'ZCOOL QingKe HuangYou', cursive;
+  font-weight: bold;
+
+  background-color: rgb(65, 65, 238);
+  color: rgb(202, 202, 202);
+
+  border: 5px double rgb(202, 202, 202);
+  border-radius: 5px;
+
+  margin: 5px;
+  padding: 10px;
+}
+
+#deleteComment {
+  visibility: hidden;
+  min-height: 100%;
+  min-width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: rgba(0, 0, 0, 0.5);
+
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1;
+}
+
+.delete {
+  background-color: rgb(65, 65, 238);
+  color: rgb(202, 202, 202);
+
+  border: 5px double rgb(202, 202, 202);
+  border-radius: 5px;
+
+  padding: 10px;
+}
+
+.delete button {
+  border-color: rgb(65, 65, 238);
+  background-color: rgb(202, 202, 202);
+  color: rgb(65, 65, 238);
+}
