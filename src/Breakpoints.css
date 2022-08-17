@@ -1,0 +1,94 @@
+@media ( min-width: 1000px ) {
+  input,
+  textarea,
+  button,
+  select {
+    cursor: pointer;
+  }
+
+  .Header {
+    min-width: 25%;
+    height: 100%;
+    align-items: flex-start;
+    padding: 10px 10px;
+    border-right: 5px double rgb(65, 65, 238);
+  }
+  .Header h1 {
+    border-bottom: 5px double rgb(65, 65, 238);
+    width: 100%;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  .Header input {
+    visibility: hidden;
+  }
+
+  .PublicContent, .AdminContent {
+    margin-top: 20px;
+    margin-left: 27%;
+  }
+
+  .postList-container {
+    display: grid;
+    grid-template-columns: repeat( 2, 1fr );
+  }
+
+  .Comment-form button,
+  .Admin-form button {
+    align-self: center;
+    padding: 10px 50px;
+  }
+
+  .Admin-form {
+    margin-top: 5%;
+  }
+
+  .AdminContent .homepage h1,
+  .AdminContent .homepage h3,
+  .AdminContent .homepage p {
+    text-align: start;
+  }
+  .AdminContent .homepage h1,
+  .AdminContent .homepage h3 {
+    text-indent: 20px;
+  }
+  .AdminContent .homepage p {
+    text-indent: 40px;
+  }
+  
+  #NavMenu {
+    visibility: visible;
+    min-width: 25%;
+    z-index: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    border: none;
+    margin-top: 5%;
+    color: rgb(65, 65, 238);
+    background-color: transparent;
+  }
+  #NavMenu .closeNavBtn {
+    visibility: hidden;
+  }
+  #NavMenu p {
+    border-bottom: 5px double rgb(65, 65, 238);
+    margin: 10px 30px;
+    cursor: pointer;
+  }
+
+  .admin-categoryList h2,
+  .admin-postList h2,
+  .admin-commentList h2 {
+    text-align: start;
+    text-indent: 20px;
+  }
+
+  .AdminContent .list {
+    display: grid;
+    grid-template-columns: repeat( 2, 1fr );
+  }
+  .listItem {
+    cursor: pointer;
+  }
+}

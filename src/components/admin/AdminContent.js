@@ -9,6 +9,8 @@ import { PostDetail } from './PostDetail';
 import { CommentDetail } from './CommentDetail';
 import { CreateCategory } from './CreateCategory';
 import { CreatePost } from './CreatePost';
+import { UpdateCategory } from './UpdateCategory';
+import { UpdatePost } from './UpdatePost';
 
 const AdminContent = ( props ) => {
   const { jwtToken } = props;
@@ -89,9 +91,9 @@ const AdminContent = ( props ) => {
         <Route
           path='/'
           element={
-            <div>
+            <div className='homepage'>
               <h1>Hello Admin.</h1>
-              <h2>Currently, we have:</h2>
+              <h3>Currently, we have:</h3>
               <p>Posts: { postsData.length }</p>
               <p>Categories: { categoriesData.length }</p>
               <p>Comments: { commentsData.length }</p>
@@ -101,6 +103,7 @@ const AdminContent = ( props ) => {
         <Route path='/allcategories' element={ <CategoryList categoriesData={ categoriesData }/> }/>
         <Route path='/allposts' element={ <PostList postsData={ postsData }/> }/>
         <Route path='/allcomments' element={ <CommentList commentsData={ commentsData }/> }/>
+
         { categoriesData.map( ( category ) => {
           return <Route
             key={ category._id }
@@ -108,6 +111,14 @@ const AdminContent = ( props ) => {
             element={ <CategoryDetail categoryData={ category } postsData={ postsData } jwtToken={ jwtToken } setDataFetched={ setDataFetched } /> }
           />
         })}
+        { categoriesData.map( ( category ) => {
+          return <Route
+            key={ category._id }
+            path={ `/allcategories/${ category._id }/update` }
+            element={ <UpdateCategory categoryData={ category } jwtToken={ jwtToken } setDataFetched={ setDataFetched } /> }
+          />
+        })}
+
         { postsData.map( ( post ) => {
           return <Route
             key={ post._id }
@@ -115,6 +126,16 @@ const AdminContent = ( props ) => {
             element={ <PostDetail postData={ post } commentsData={ commentsData } jwtToken={ jwtToken } setDataFetched={ setDataFetched } /> }
           />
         })}
+        { postsData.map( ( post ) => {
+          return <Route
+            key={ post._id }
+            path={ `allposts/${ post._id }/update` }
+            element={ <UpdatePost postData={ post } jwtToken={ jwtToken }
+              setDataFetched={ setDataFetched } categoriesData={ categoriesData }
+            />}
+          />
+        })}
+
         { commentsData.map( ( comment ) => {
           return <Route
             key={ comment._id }
@@ -122,6 +143,7 @@ const AdminContent = ( props ) => {
             element={ <CommentDetail commentData={ comment } jwtToken={ jwtToken } setDataFetched={ setDataFetched } /> }
           />
         })}
+
         <Route
           path={ '/createcategory' }
           element={ <CreateCategory jwtToken={ jwtToken } setCategoriesData={ setCategoriesData }/> }

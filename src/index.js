@@ -11,6 +11,7 @@ import './components/admin/Admin.css';
 import './components/comment/Comment.css';
 import './components/category/Category.css';
 import './components/publicUser/Public.css';
+import './Breakpoints.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

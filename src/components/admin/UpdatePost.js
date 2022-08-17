@@ -1,41 +1,21 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const CreatePost = ( props ) => {
-  const { jwtToken, setPostsData, categoriesData } = props;
+const UpdatePost = ( props ) => {
+  const { postData, jwtToken, setDataFetched, categoriesData } = props;
 
-  const [ titleState, setTitleState ] = useState('');
-  const [ contentState, setContentState ] = useState('');
-  const [ postStatusState, setPostStatusState ] = useState('');
-  const [ categoryState, setCategoryState ] = useState('');
+  const [ titleState, setTitleState ] = useState( postData.title );
+  const [ contentState, setContentState ] = useState( postData.content );
+  const [ postStatusState, setPostStatusState ] = useState( postData.postStatus );
+  const [ categoryState, setCategoryState ] = useState( postData.category );
 
   const navigate = useNavigate();
 
-  const getPosts = async () => {
-    const url = 'http://localhost:4000/admin/allposts';
-
-    try {
-      const response = await fetch( url, {
-        method: 'GET',
-        mode: 'cors',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${ jwtToken }`
-        }
-      });
-
-      const data = await response.json();
-      setPostsData( data.posts );
-      console.log( data );
-    }
-    catch( err ) { console.log( 'Error:', err ); }
-  };
-
-  const createPost = async ( e ) => {
+  const updatePost = async (e) => {
     e.preventDefault();
 
-    const url = 'http://localhost:4000/admin/post';
-    const postData = {
+    const url = `http://localhost:4000/admin/posts/${ postData._id }`;
+    const updatedData = {
       title: titleState,
       content: contentState,
       postStatus: postStatusState,
@@ -44,28 +24,24 @@ const CreatePost = ( props ) => {
 
     try {
       const response = await fetch( url, {
-        method: 'POST',
+        method: 'PUT',
         mode: 'cors',
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${ jwtToken }`
         },
-        body: JSON.stringify( postData ),
+        body: JSON.stringify( updatedData ),
       });
       const data = await response.json();
       console.log( 'Success:', data );
-      getPosts();
-      setTitleState('');
-      setContentState('');
-      setPostStatusState('');
-      setCategoryState('');
-      navigate( '/allposts' );
+      setDataFetched( false );
+      navigate( '/' );
     }
     catch( err ) { console.log( 'Error:', err ) }
-  }
+  };
 
   return(
-    <form className='Admin-form' onSubmit={ createPost }>
+    <form className='Admin-form' onSubmit={ updatePost }>
       <label htmlFor='title'>Post Title:</label>
       <input type='text' id='title' name='title'
         placeholder='Enter Post Title' value={ titleState }
@@ -81,6 +57,7 @@ const CreatePost = ( props ) => {
         id='postStatus'
         value={ postStatusState }
         onChange={ e => { setPostStatusState( e.target.value ) } }
+        defaultValue={''}
       >
         <option value={''} disabled>Choose Post Status</option>
         <option value='published'>Published</option>
@@ -92,15 +69,16 @@ const CreatePost = ( props ) => {
         id='postCategory'
         value={ categoryState }
         onChange={ e => { setCategoryState( e.target.value ) } }
+        defaultValue={''}
       >
         <option value={''} disabled>Choose Post Category</option>
         { categoriesData.map( ( category ) => {
           return <option key={ category._id } value={ category._id }>{ category.name }</option>
         })}
       </select>
-      <button type='submit'>Create Post</button>
+      <button type='submit'>Update Post</button>
     </form>
   );
 };
 
-export { CreatePost }
+export { UpdatePost };

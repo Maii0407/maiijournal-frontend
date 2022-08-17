@@ -53,6 +53,9 @@ const CategoryDetail = ( props ) => {
           <p>Category ID: { categoryData._id }</p>
           <div className='btn-container'>
             <button type='button' onClick={ openDeleteMenu }>Delete</button>
+            <button type='button' onClick={ () => {
+              navigate( `/allcategories/${ categoryData._id }/update` )
+            }}>Update</button>
           </div>
         </div>
         <h2>Posts:</h2>
@@ -78,6 +81,9 @@ const CategoryDetail = ( props ) => {
         <p>Category ID: { categoryData._id }</p>
         <div className='btn-container'>
           <button type='button' onClick={ openDeleteMenu }>Delete</button>
+          <button type='button' onClick={ () => {
+              navigate( `/allcategories/${ categoryData._id }/update` )
+          }}>Update</button>
         </div>
       </div>
       <h2>Posts:</h2>

@@ -51,6 +51,4 @@ const PostDetail = ( props ) => {
   );
 };
 
-//the div with class postCategory will have a navigate function to that category
-
 export { PostDetail };

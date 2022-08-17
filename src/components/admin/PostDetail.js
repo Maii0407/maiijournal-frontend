@@ -57,6 +57,9 @@ const PostDetail = ( props ) => {
           <p>Created: { DateTime.fromISO( postData.date ).toFormat( 'dd LLL yyyy' ) }</p>
           <div className='btn-container'>
             <button type='button' onClick={ openDeleteMenu }>Delete</button>
+            <button type='button' onClick={ () => {
+              navigate( `/allposts/${ postData._id }/update` )
+            }}>Update</button>
           </div>
         </div>
         <h2>Comments:</h2>
@@ -86,6 +89,9 @@ const PostDetail = ( props ) => {
         <p>Created: { DateTime.fromISO( postData.date ).toFormat( 'dd LLL yyyy' ) }</p>
         <div className='btn-container'>
             <button type='button' onClick={ openDeleteMenu }>Delete</button>
+            <button type='button' onClick={ () => {
+              navigate( `/allposts/${ postData._id }/update` )
+            }}>Update</button>
         </div>
       </div>
       <h2>Comments:</h2>
