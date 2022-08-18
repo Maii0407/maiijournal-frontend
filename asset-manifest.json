@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/maiijournal-frontend/static/css/main.0712ccda.css",
-    "main.js": "/maiijournal-frontend/static/js/main.a63200e8.js",
+    "main.css": "/maiijournal-frontend/static/css/main.8c4ace4b.css",
+    "main.js": "/maiijournal-frontend/static/js/main.952d5111.js",
     "static/js/787.393e5da5.chunk.js": "/maiijournal-frontend/static/js/787.393e5da5.chunk.js",
     "index.html": "/maiijournal-frontend/index.html",
     "static/media/navbar.svg": "/maiijournal-frontend/static/media/navbar.166eb6580872f5873b157031c0fba58f.svg",
-    "main.0712ccda.css.map": "/maiijournal-frontend/static/css/main.0712ccda.css.map",
-    "main.a63200e8.js.map": "/maiijournal-frontend/static/js/main.a63200e8.js.map",
+    "main.8c4ace4b.css.map": "/maiijournal-frontend/static/css/main.8c4ace4b.css.map",
+    "main.952d5111.js.map": "/maiijournal-frontend/static/js/main.952d5111.js.map",
     "787.393e5da5.chunk.js.map": "/maiijournal-frontend/static/js/787.393e5da5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.0712ccda.css",
-    "static/js/main.a63200e8.js"
+    "static/css/main.8c4ace4b.css",
+    "static/js/main.952d5111.js"
   ]
 }
