@@ -53,7 +53,7 @@ const PublicContent = ( props ) => {
     <div className='PublicContent'>
       <Routes>
         <Route
-          path='/'
+          path='/maiijournal-frontend/'
           element={
             <div className='initialContent'>
               <h3>Filter by Categories</h3>
