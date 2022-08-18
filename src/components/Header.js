@@ -16,7 +16,7 @@ const Header = ( props ) => {
   if( admin ) {
     return(
       <div className='Header'>
-        <h1 onClick={ () => { navigate('/') } }>
+        <h1 onClick={ () => { navigate('/maiijournal-frontend/') } }>
           maiiJournal
         </h1>
         <input type='image' src={ navbar } alt='navMenu' onClick={ openNav }/>
