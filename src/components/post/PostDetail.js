@@ -41,7 +41,7 @@ const PostDetail = ( props ) => {
         <p>{ postData.content }</p>
         <div className='post-info'>
           <div className='postCategory' onClick={ () => {
-            navigate( `/${ postData.category._id }` )
+            navigate( `/maiijournal-frontend/${ postData.category._id }` )
           }}>{ postData.category.name }</div>
           <p>{ DateTime.fromISO( postData.date ).toFormat( 'dd LLL yyyy' ) }</p>
         </div>

@@ -13,7 +13,7 @@ const CategoryList = ( props ) => {
         {
           categoriesData.map( ( category ) => {
             return <div key={ category._id } className='listItem' onClick={ () => {
-              navigate( `/allcategories/${ category._id }` )
+              navigate( `/maiijournal-frontend/allcategories/${ category._id }` )
             } }>
               <p>{ category.name }</p>
             </div>

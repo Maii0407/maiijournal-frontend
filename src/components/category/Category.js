@@ -8,7 +8,7 @@ const Category = ( props ) => {
 
   return(
     <div type='button' className='Category'
-      onClick={ () => { navigate( `/${ categoryData._id }` ) }}
+      onClick={ () => { navigate( `/maiijournal-frontend/${ categoryData._id }` ) }}
     >
       { categoryData.name }
     </div>

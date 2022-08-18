@@ -54,7 +54,7 @@ const CategoryDetail = ( props ) => {
           <div className='btn-container'>
             <button type='button' onClick={ openDeleteMenu }>Delete</button>
             <button type='button' onClick={ () => {
-              navigate( `/allcategories/${ categoryData._id }/update` )
+              navigate( `/maiijournal-frontend/allcategories/${ categoryData._id }/update` )
             }}>Update</button>
           </div>
         </div>
@@ -82,7 +82,7 @@ const CategoryDetail = ( props ) => {
         <div className='btn-container'>
           <button type='button' onClick={ openDeleteMenu }>Delete</button>
           <button type='button' onClick={ () => {
-              navigate( `/allcategories/${ categoryData._id }/update` )
+              navigate( `/maiijournal-frontend/allcategories/${ categoryData._id }/update` )
           }}>Update</button>
         </div>
       </div>
@@ -90,7 +90,7 @@ const CategoryDetail = ( props ) => {
       <div className='list'>{
         postsFiltered.map( ( post ) => {
           return <div key={ post._id } className='listItem' onClick={ () => {
-            navigate( `/allposts/${ post._id }` );
+            navigate( `/maiijournal-frontend/allposts/${ post._id }` );
           }}>
             <p>{ post.title }</p>
           </div>

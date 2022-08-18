@@ -13,7 +13,7 @@ const PostList = ( props ) => {
         {
         postsData.map( ( post ) => {
           return <div key={ post._id } className='listItem' onClick={ () => {
-            navigate( `/allposts/${ post._id }` )
+            navigate( `/maiijournal-frontend/allposts/${ post._id }` )
           } }>
             <p>Title: { post.title }</p>
             <p>Status: { post.postStatus }</p>

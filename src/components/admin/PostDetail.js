@@ -58,7 +58,7 @@ const PostDetail = ( props ) => {
           <div className='btn-container'>
             <button type='button' onClick={ openDeleteMenu }>Delete</button>
             <button type='button' onClick={ () => {
-              navigate( `/allposts/${ postData._id }/update` )
+              navigate( `/maiijournal-frontend/allposts/${ postData._id }/update` )
             }}>Update</button>
           </div>
         </div>
@@ -90,7 +90,7 @@ const PostDetail = ( props ) => {
         <div className='btn-container'>
             <button type='button' onClick={ openDeleteMenu }>Delete</button>
             <button type='button' onClick={ () => {
-              navigate( `/allposts/${ postData._id }/update` )
+              navigate( `/maiijournal-frontend/allposts/${ postData._id }/update` )
             }}>Update</button>
         </div>
       </div>
@@ -98,7 +98,7 @@ const PostDetail = ( props ) => {
       <div className='list'>{
         commentsFiltered.map( ( comment ) => {
           return <div key={ comment._id } className='listItem' onClick={ () => {
-            navigate( `/allcomments/${ comment._id }` );
+            navigate( `/maiijournal-frontend/allcomments/${ comment._id }` );
           }}>
             <p>{ comment.content }</p>
           </div>

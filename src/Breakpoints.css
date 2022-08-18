@@ -43,6 +43,10 @@
     margin-top: 5%;
   }
 
+  .adminBtn {
+    cursor: pointer;
+  }
+
   .AdminContent .homepage h1,
   .AdminContent .homepage h3,
   .AdminContent .homepage p {

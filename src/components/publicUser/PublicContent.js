@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 
 import { Category } from '../category/Category';
 import { CategoryPost } from '../category/CategoryPost';
@@ -13,6 +13,8 @@ const PublicContent = ( props ) => {
   const [ postsData, setPostsData ] = useState([]);
   const [ categoriesData, setCategoriesData ] = useState([]);
   const [ fetchStatus, setFetchStatus ] = useState( false );
+
+  const navigate = useNavigate();
 
   useEffect( () => {
     const getPostsData = async () => {
@@ -56,6 +58,9 @@ const PublicContent = ( props ) => {
           path='/maiijournal-frontend/'
           element={
             <div className='initialContent'>
+              <h3 className='adminBtn' onClick={ () => {
+                navigate( '/maiijournal-frontend/admin' );
+              }}>Admin ???</h3>
               <h3>Filter by Categories</h3>
               <div className='categoryList-container'>{
                 categoriesData.map( ( category ) => {

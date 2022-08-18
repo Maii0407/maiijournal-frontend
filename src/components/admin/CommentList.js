@@ -13,7 +13,7 @@ const CommentList = ( props ) => {
         {
         commentsData.map( ( comment ) => {
           return <div key={ comment._id } className='listItem' onClick={ () => {
-            navigate( `/allcomments/${ comment._id }` )
+            navigate( `/maiijournal-frontend/allcomments/${ comment._id }` )
           } }>
             <p>{ comment.content }</p>
           </div>
