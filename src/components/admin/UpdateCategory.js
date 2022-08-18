@@ -27,7 +27,7 @@ const UpdateCategory = ( props ) => {
       const data = await response.json();
       console.log( 'Success:', data );
       setDataFetched( false );
-      navigate( '/' );
+      navigate( '/maiijournal-frontend/' );
     }
     catch( err ) { console.log( 'Error:', err ) }
   };

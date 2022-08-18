@@ -30,7 +30,7 @@ const CommentDetail = ( props ) => {
       const data = await response.json();
       console.log( data );
       setDataFetched( false );
-      navigate( '/' );
+      navigate( '/maiijournal-frontend/' );
     }
     catch( err ) { console.log( 'Error:', err ); }
   };

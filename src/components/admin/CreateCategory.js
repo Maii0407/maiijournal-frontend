@@ -43,7 +43,7 @@ const CreateCategory = ( props ) => {
       console.log( 'Success:', data );
       getCategories();
       setCategoryName('');
-      navigate( '/allcategories' );
+      navigate( '/maiijournal-frontend/allcategories' );
     }
     catch( err ) { console.log( 'Error:', err ); }
   };

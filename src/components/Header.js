@@ -26,7 +26,7 @@ const Header = ( props ) => {
 
   return(
     <div className='Header'>
-      <h1 onClick={ () => { navigate( '/' ) } }>
+      <h1 onClick={ () => { navigate( '/maiijournal-frontend/' ) } }>
         maiiJournal
       </h1>
     </div>

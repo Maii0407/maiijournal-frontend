@@ -15,29 +15,29 @@ const AdminNavBar = () => {
         <div className='allContent'>
           <p className='closeNavBtn' onClick={ closeNav }>&times;</p>
           <p onClick={ () => {
-            navigate( '/' );
+            navigate( '/maiijournal-frontend/' );
             closeNav();
           }}>Home</p>
           <p onClick={ () => {
-            navigate( '/allcategories' );
+            navigate( '/maiijournal-frontend/allcategories' );
             closeNav();
           }}>All Categories</p>
           <p onClick={ () => {
-            navigate( '/allposts');
+            navigate( '/maiijournal-frontend/allposts');
             closeNav();
           }}>All Posts</p>
           <p onClick={ () => {
-            navigate( '/allcomments' );
+            navigate( '/maiijournal-frontend/allcomments' );
             closeNav();
           }}>All Comments</p>
         </div>
         <div className='createContent'>
           <p onClick={ () => {
-            navigate( '/createpost' );
+            navigate( '/maiijournal-frontend/createpost' );
             closeNav();
           }}>+ New Post</p>
           <p onClick={ () => {
-            navigate( '/createcategory' );
+            navigate( '/maiijournal-frontend/createcategory' );
             closeNav();
           }}>+ New Category</p>
         </div>

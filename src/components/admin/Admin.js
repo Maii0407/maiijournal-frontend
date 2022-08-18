@@ -31,7 +31,7 @@ const Admin = ( props ) => {
       setAdmin( true );
       setUserIDState('');
       setPasswordState('');
-      navigate( '/' );
+      navigate( '/maiijournal-frontend/' );
     }
     catch( err ) {
       console.log( 'Error:', err );

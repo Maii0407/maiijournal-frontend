@@ -58,7 +58,7 @@ const CreatePost = ( props ) => {
       setContentState('');
       setPostStatusState('');
       setCategoryState('');
-      navigate( '/allposts' );
+      navigate( '/maiijournal-frontend/allposts' );
     }
     catch( err ) { console.log( 'Error:', err ) }
   }
