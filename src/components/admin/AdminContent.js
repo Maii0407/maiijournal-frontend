@@ -86,7 +86,7 @@ const AdminContent = ( props ) => {
     <div className='AdminContent'>
       <Routes>
         <Route
-          path='/'
+          path='/maiijournal-frontend/'
           element={
             <div className='homepage'>
               <h1>Hello Admin.</h1>
@@ -97,21 +97,21 @@ const AdminContent = ( props ) => {
             </div>
           }
         />
-        <Route path='/allcategories' element={ <CategoryList categoriesData={ categoriesData }/> }/>
-        <Route path='/allposts' element={ <PostList postsData={ postsData }/> }/>
-        <Route path='/allcomments' element={ <CommentList commentsData={ commentsData }/> }/>
+        <Route path='/maiijournal-frontend/allcategories' element={ <CategoryList categoriesData={ categoriesData }/> }/>
+        <Route path='/maiijournal-frontend/allposts' element={ <PostList postsData={ postsData }/> }/>
+        <Route path='/maiijournal-frontend/allcomments' element={ <CommentList commentsData={ commentsData }/> }/>
 
         { categoriesData.map( ( category ) => {
           return <Route
             key={ category._id }
-            path={ `/allcategories/${ category._id }` }
+            path={ `/maiijournal-frontend/allcategories/${ category._id }` }
             element={ <CategoryDetail categoryData={ category } postsData={ postsData } jwtToken={ jwtToken } setDataFetched={ setDataFetched } /> }
           />
         })}
         { categoriesData.map( ( category ) => {
           return <Route
             key={ category._id }
-            path={ `/allcategories/${ category._id }/update` }
+            path={ `/maiijournal-frontend/allcategories/${ category._id }/update` }
             element={ <UpdateCategory categoryData={ category } jwtToken={ jwtToken } setDataFetched={ setDataFetched } /> }
           />
         })}
@@ -119,14 +119,14 @@ const AdminContent = ( props ) => {
         { postsData.map( ( post ) => {
           return <Route
             key={ post._id }
-            path={ `/allposts/${ post._id }` }
+            path={ `/maiijournal-frontend/allposts/${ post._id }` }
             element={ <PostDetail postData={ post } commentsData={ commentsData } jwtToken={ jwtToken } setDataFetched={ setDataFetched } /> }
           />
         })}
         { postsData.map( ( post ) => {
           return <Route
             key={ post._id }
-            path={ `allposts/${ post._id }/update` }
+            path={ `/maiijournal-frontendallposts/${ post._id }/update` }
             element={ <UpdatePost postData={ post } jwtToken={ jwtToken }
               setDataFetched={ setDataFetched } categoriesData={ categoriesData }
             />}
@@ -136,17 +136,17 @@ const AdminContent = ( props ) => {
         { commentsData.map( ( comment ) => {
           return <Route
             key={ comment._id }
-            path={ `/allcomments/${ comment._id }` }
+            path={ `/maiijournal-frontend/allcomments/${ comment._id }` }
             element={ <CommentDetail commentData={ comment } jwtToken={ jwtToken } setDataFetched={ setDataFetched } /> }
           />
         })}
 
         <Route
-          path={ '/createcategory' }
+          path={ '/maiijournal-frontend/createcategory' }
           element={ <CreateCategory jwtToken={ jwtToken } setCategoriesData={ setCategoriesData }/> }
         />
         <Route
-          path={ '/createpost' }
+          path={ '/maiijournal-frontend/createpost' }
           element={ <CreatePost jwtToken={ jwtToken } setPostsData={ setPostsData } categoriesData={ categoriesData }/> }
         />
       </Routes>

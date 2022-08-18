@@ -71,7 +71,7 @@ const PublicContent = ( props ) => {
             </div>
           }
         />
-        <Route path='/admin' element={ <Admin
+        <Route path='/maiijournal-frontend/admin' element={ <Admin
             setJwtToken={ setJwtToken }
             setAdmin={ setAdmin }
           />
@@ -80,7 +80,7 @@ const PublicContent = ( props ) => {
           postsData.map( ( post ) => {
             return <Route
               key={ post._id }
-              path={ `/${ post._id }` }
+              path={ `/maiijournal-frontend/${ post._id }` }
               element={ <PostDetail postData={ post }/> }
             />
           })
@@ -89,7 +89,7 @@ const PublicContent = ( props ) => {
           categoriesData.map( ( category ) => {
             return <Route
               key={ category._id }
-              path={ `/${ category._id }` }
+              path={ `/maiijournal-frontend/${ category._id }` }
               element={ <CategoryPost
                 categoryData={ category }
                 postsArray={ postsData }
