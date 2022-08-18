@@ -11,7 +11,7 @@ const Admin = ( props ) => {
   const login = async (e) => {
     e.preventDefault();
 
-    const url = 'http://localhost:4000/admin/superSecretAdminLogin';
+    const url = 'https://maiijournal-restapi.herokuapp.com/admin/superSecretAdminLogin';
     const formData = {
       userID: userIDState,
       password: passwordState
@@ -27,7 +27,6 @@ const Admin = ( props ) => {
         body: JSON.stringify( formData ),
       });
       const data = await response.json();
-      console.log( 'Success:', data );
       setJwtToken( data.token );
       setAdmin( true );
       setUserIDState('');

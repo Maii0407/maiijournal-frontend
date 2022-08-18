@@ -12,7 +12,7 @@ const CreatePost = ( props ) => {
   const navigate = useNavigate();
 
   const getPosts = async () => {
-    const url = 'http://localhost:4000/admin/allposts';
+    const url = 'https://maiijournal-restapi.herokuapp.com/admin/allposts';
 
     try {
       const response = await fetch( url, {
@@ -26,7 +26,6 @@ const CreatePost = ( props ) => {
 
       const data = await response.json();
       setPostsData( data.posts );
-      console.log( data );
     }
     catch( err ) { console.log( 'Error:', err ); }
   };
@@ -34,7 +33,7 @@ const CreatePost = ( props ) => {
   const createPost = async ( e ) => {
     e.preventDefault();
 
-    const url = 'http://localhost:4000/admin/post';
+    const url = 'https://maiijournal-restapi.herokuapp.com/admin/post';
     const postData = {
       title: titleState,
       content: contentState,

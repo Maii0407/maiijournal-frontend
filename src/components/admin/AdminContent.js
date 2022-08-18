@@ -22,7 +22,7 @@ const AdminContent = ( props ) => {
 
   useEffect( () => {
     const getPosts = async () => {
-      const url = 'http://localhost:4000/admin/allposts';
+      const url = 'https://maiijournal-restapi.herokuapp.com/admin/allposts';
 
       try {
         const response = await fetch( url, {
@@ -36,13 +36,12 @@ const AdminContent = ( props ) => {
 
         const data = await response.json();
         setPostsData( data.posts );
-        console.log( data );
       }
       catch( err ) { console.log( 'Error:', err ); }
     };
 
     const getCategories = async () => {
-      const url = 'http://localhost:4000/journal/categories';
+      const url = 'https://maiijournal-restapi.herokuapp.com/journal/categories';
 
       try {
         const response = await fetch( url, {
@@ -52,13 +51,12 @@ const AdminContent = ( props ) => {
 
         const data = await response.json();
         setCategoriesData( data.categories );
-        console.log( data );
       }
       catch( err ) { console.log( 'Error:', err ); }
     };
 
     const getComments = async () => {
-      const url = 'http://localhost:4000/admin/allcomments';
+      const url = 'https://maiijournal-restapi.herokuapp.com/admin/allcomments';
 
       try {
         const response = await fetch( url, {
@@ -72,7 +70,6 @@ const AdminContent = ( props ) => {
 
         const data = await response.json();
         setCommentsData( data.comments );
-        console.log( data );
       }
       catch( err ) { console.log( 'Error:', err ); }
     };

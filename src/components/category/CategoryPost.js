@@ -27,6 +27,7 @@ const CategoryPost = ( props ) => {
 
   return(
     <div className='CategoryPost'>
+      <h3>Posts inside { categoryData.name }:</h3>
       <div className='postList-container'>
         {
           categoryPostList.map( ( post ) => {

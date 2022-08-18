@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { DateTime } from 'luxon';
+import { useNavigate } from 'react-router-dom';
 
 import { CommentCreate } from '../comment/CommentCreate';
 import { CommentList } from '../comment/CommentList';
@@ -10,15 +11,16 @@ const PostDetail = ( props ) => {
   const [ commentsData, setCommentsData ] = useState([]);
   const [ commentsFetched, setCommentsFetched ] = useState( false );
 
+  const navigate = useNavigate();
+
   useEffect( () => {
     const getCommentsData = async () => {
-      const url = `http://localhost:4000/journal/posts/${ postData._id }/comments`;
+      const url = `https://maiijournal-restapi.herokuapp.com/journal/posts/${ postData._id }/comments`;
 
       try{
         const response = await fetch( url, { method: 'GET', mode: 'cors' });
         const data = await response.json();
         setCommentsData( data.comments );
-        console.log( data );
       }
       catch( err ) {
         console.log( 'Error:', err );
@@ -38,7 +40,9 @@ const PostDetail = ( props ) => {
         <h3>{ postData.title }</h3>
         <p>{ postData.content }</p>
         <div className='post-info'>
-          <div className='postCategory'>{ postData.category.name }</div>
+          <div className='postCategory' onClick={ () => {
+            navigate( `/${ postData.category._id }` )
+          }}>{ postData.category.name }</div>
           <p>{ DateTime.fromISO( postData.date ).toFormat( 'dd LLL yyyy' ) }</p>
         </div>
       </div>

@@ -18,7 +18,7 @@ const CategoryDetail = ( props ) => {
   };
 
   const deleteCategory = async () => {
-    const url = `http://localhost:4000/admin/categories/${ categoryData._id }`;
+    const url = `https://maiijournal-restapi.herokuapp.com/admin/categories/${ categoryData._id }`;
 
     try {
       const response = await fetch( url, {

@@ -91,4 +91,8 @@
   .listItem {
     cursor: pointer;
   }
+
+  .Category, .Post, .postCategory {
+    cursor: pointer;
+  }
 }

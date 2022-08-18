@@ -9,7 +9,7 @@ const CreateCategory = ( props ) => {
   const navigate = useNavigate();
 
   const getCategories = async () => {
-    const url = 'http://localhost:4000/journal/categories';
+    const url = 'https://maiijournal-restapi.herokuapp.com/journal/categories';
 
     try {
       const response = await fetch( url, {
@@ -19,7 +19,6 @@ const CreateCategory = ( props ) => {
 
       const data = await response.json();
       setCategoriesData( data.categories );
-      console.log( data );
     }
     catch( err ) { console.log( 'Error:', err ); }
   };
@@ -27,7 +26,7 @@ const CreateCategory = ( props ) => {
   const createCategory = async (e) => {
     e.preventDefault();
 
-    const url = 'http://localhost:4000/admin/category';
+    const url = 'https://maiijournal-restapi.herokuapp.com/admin/category';
     const categoryData = { name: categoryName };
 
     try {

@@ -16,13 +16,12 @@ const PublicContent = ( props ) => {
 
   useEffect( () => {
     const getPostsData = async () => {
-      const url = 'http://localhost:4000/journal/posts';
+      const url = 'https://maiijournal-restapi.herokuapp.com/journal/posts';
 
       try {
         const response = await fetch( url, { method: 'GET', mode: 'cors' } );
         const data = await response.json();
         setPostsData( data.posts );
-        console.log( data );
       }
       catch( err ) {
         console.log( err );
@@ -30,13 +29,12 @@ const PublicContent = ( props ) => {
     };
 
     const getCategories = async () => {
-      const url = 'http://localhost:4000/journal/categories';
+      const url = 'https://maiijournal-restapi.herokuapp.com/journal/categories';
 
       try {
         const response = await fetch( url, { method: 'GET', mode: 'cors' });
         const data = await response.json();
         setCategoriesData( data.categories );
-        console.log( data );
       }
       catch( err ) {
         console.log( 'Error:', err );

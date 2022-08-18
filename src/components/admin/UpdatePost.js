@@ -14,7 +14,7 @@ const UpdatePost = ( props ) => {
   const updatePost = async (e) => {
     e.preventDefault();
 
-    const url = `http://localhost:4000/admin/posts/${ postData._id }`;
+    const url = `https://maiijournal-restapi.herokuapp.com/admin/posts/${ postData._id }`;
     const updatedData = {
       title: titleState,
       content: contentState,

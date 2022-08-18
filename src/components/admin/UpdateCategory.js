@@ -11,7 +11,7 @@ const UpdateCategory = ( props ) => {
   const updateCategory = async ( e ) => {
     e.preventDefault();
 
-    const url =  `http://localhost:4000/admin/categories/${ categoryData._id }`;
+    const url =  `https://maiijournal-restapi.herokuapp.com/admin/categories/${ categoryData._id }`;
     const updatedData = { name: nameState };
 
     try {

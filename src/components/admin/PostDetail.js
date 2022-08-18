@@ -19,7 +19,7 @@ const PostDetail = ( props ) => {
   };
 
   const deletePost = async () => {
-    const url = `http://localhost:4000/admin/posts/${ postData._id }`;
+    const url = `https://maiijournal-restapi.herokuapp.com/admin/posts/${ postData._id }`;
 
     try {
       const response = await fetch( url, {

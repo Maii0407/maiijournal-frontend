@@ -16,7 +16,7 @@ const CommentDetail = ( props ) => {
   };
 
   const deleteComment = async () => {
-    const url = `http://localhost:4000/admin/comments/${ commentData._id }`;
+    const url = `https://maiijournal-restapi.herokuapp.com/admin/comments/${ commentData._id }`;
 
     try {
       const response = await fetch( url, {

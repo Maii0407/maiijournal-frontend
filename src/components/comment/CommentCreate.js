@@ -7,13 +7,12 @@ const CommentCreate = ( props ) => {
   const [ commentState, setCommentState ] = useState('');
 
   const getCommentsData = async () => {
-    const url = `http://localhost:4000/journal/posts/${ postData._id }/comments`;
+    const url = `https://maiijournal-restapi.herokuapp.com/journal/posts/${ postData._id }/comments`;
 
     try{
       const response = await fetch( url, { method: 'GET', mode: 'cors' });
       const data = await response.json();
       setCommentsData( data.comments );
-      console.log( data );
     }
     catch( err ) {
       console.log( 'Error:', err );
@@ -23,7 +22,7 @@ const CommentCreate = ( props ) => {
   const createComment = async (e) => {
     e.preventDefault();
 
-    const url = `http://localhost:4000/journal/comment/${ postData._id }`;
+    const url = `https://maiijournal-restapi.herokuapp.com/journal/comment/${ postData._id }`;
     const commentData = {
       username: usernameState,
       content: commentState
